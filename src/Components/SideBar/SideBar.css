@@ -1,0 +1,177 @@
+.sidenav {
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  width: 220px;
+  background: white;
+  height: 100vh;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.sidebar-top .logo {
+  font-size: 24px;
+  font-weight: 700;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  color: var(--primary);
+  z-index: 500;
+  padding-bottom: 20px;
+  box-sizing: content-box;
+  padding-top: 6px;
+  justify-content: center;
+  padding-left: 10px;
+  text-decoration: none;
+  gap: 5px;
+}
+
+.sidenav .logo img {
+  width: 34px;
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
+.sidebar-top i {
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 0 0 3px 10px;
+  cursor: pointer;
+  color: var(--dark);
+}
+
+.close {
+  width: 50px;
+  padding-top: 10px;
+}
+
+.close .sidebar-top .logo {
+  display: none;
+}
+
+.close .sidebar-top i {
+  padding-left: 10px;
+}
+
+.sidebar-bottom {
+  background: var(--background);
+  width: 100%;
+  height: 10vh;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.sidebar-bottom .user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #f6f6f9;
+  margin-left: 15px;
+  font-size: 14px;
+  gap: 10px;
+}
+
+.sidebar-bottom .user span {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sidebar-bottom .user span a,
+.sidebar-bottom .user span i {
+  text-decoration: none;
+  color: #f6f6f9;
+}
+
+.sidebar-bottom .user img {
+  width: 40px;
+  border-radius: 40px;
+}
+
+.sidebar-bottom .bx-log-out {
+  padding-right: 10px;
+  font-size: 1.6rem;
+  color: #ff0000;
+}
+
+.close .sidebar-bottom .user span,
+.close .sidebar-bottom i {
+  display: none;
+}
+
+.close .sidebar-bottom .user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1.5px;
+}
+
+.sidebar-mid {
+  flex: 1;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.close .sidebar-mid span {
+  display: none;
+}
+
+.sidebar-mid ul {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.sidebar-mid ul li {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  gap: 5px;
+  color: var(--dark);
+  height: 28px;
+  background: transparent;
+  margin-left: 10px;
+  border-radius: 5px 0 0 5px;
+  padding: 4px;
+  padding-left: 10px;
+}
+
+.sidebar-mid ul li.action {
+  background: #3a86ff;
+  position: relative;
+  color: #f6f6f9;
+}
+
+.sidebar-mid ul .bx {
+  font-size: 1.7rem;
+}
+
+.close .sidebar-mid li {
+  border-radius: 10px;
+  align-items: center;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}

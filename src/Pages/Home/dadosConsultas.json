@@ -1,0 +1,23 @@
+[
+  {
+    "medico": "Dr. José",
+    "tipoConsulta": "Clínica Geral",
+    "data": "01/05/2024",
+    "horaInicial": "09:00",
+    "horaFinal": "10:00"
+  },
+  {
+    "medico": "Dra. Maria",
+    "tipoConsulta": "Pediatria",
+    "data": "02/05/2024",
+    "horaInicial": "10:30",
+    "horaFinal": "11:30"
+  },
+  {
+    "medico": "Dr. João",
+    "tipoConsulta": "Ortopedia",
+    "data": "03/05/2024",
+    "horaInicial": "14:00",
+    "horaFinal": "15:00"
+  }
+]

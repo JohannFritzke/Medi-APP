@@ -1,10 +1,10 @@
 import background from "../../assets/img.jpg";
 import "./Login.css";
-import "./../Hexagono.css";
-import { FaHandHoldingMedical } from "react-icons/fa";
 import { FaUser } from "react-icons/fa6";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
+
+import Logo from "../../Components/Logo/Logo";
 
 export function Login() {
   return (
@@ -18,14 +18,10 @@ export function Login() {
       <aside>
         <div className="title">
           <div className="title-name">
-            <span style={{ color: "#c52233" }}>i</span>
+            <span style={{ color: "#3a86ff" }}>i</span>
             Medic
           </div>
-          <div class="hexagon">
-            <span>
-              <FaHandHoldingMedical />
-            </span>
-          </div>
+          <Logo/>
         </div>
         <span>Identifique-se</span>
         <div className="inputs">

@@ -1,33 +1,68 @@
-import { FaHandHoldingMedical } from "react-icons/fa";
-
+import React from "react";
+import Sidebar from "../../Components/SideBar/SideBar";
+import TopBar from "../../Components/TopBar/TopBar";
 import "./Home.css";
-import "./../Hexagono.css";
+
+import dadosPacientes from "./dadosPacientes.json";
+import dadosConsultas from "./dadosConsultas.json";
 
 export function Home() {
   return (
-    <div className="content-home">
-      <div className="menu">
-        <div className="logo">
-          <span>
-            <span style={{ color: "#c52233" }}>i</span>
-            Medic
-          </span>
-          <div className="hexagon">
-            <span>
-              <FaHandHoldingMedical />
-            </span>
-          </div>
+    <div className="container">
+      <Sidebar />
+      <TopBar />
+      <div className="home-content">
+        <div className="tabela-format">
+          <span>Lista de Agendamentos</span>
+          <table className="tabela">
+            <thead>
+              <tr>
+                <th>Médico</th>
+                <th>Tipo de Consulta</th>
+                <th>Data</th>
+                <th>Hora Inicial</th>
+                <th>Hora Final</th>
+              </tr>
+            </thead>
+            <tbody>
+              {dadosConsultas.map((item, index) => (
+                <tr key={index}>
+                  <td>{item.medico}</td>
+                  <td>{item.tipoConsulta}</td>
+                  <td>{item.data}</td>
+                  <td>{item.horaInicial}</td>
+                  <td>{item.horaFinal}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-        <nav>
-          <ul>
-            <li>Home</li>
-            <li>Cadastro de Medico</li>
-          </ul>
-        </nav>
+        <div className="tabela-format">
+          <span>Lista de Pacientes</span>
+          <table className="tabela">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Telefone</th>
+                <th>E-mail</th>
+                <th>Data/Horário</th>
+              </tr>
+            </thead>
+            <tbody>
+              {dadosPacientes.map((item, index) => (
+                <tr key={index}>
+                  <td>{item.nome}</td>
+                  <td>{item.cpf}</td>
+                  <td>{item.telefone}</td>
+                  <td>{item.email}</td>
+                  <td>{item.dataHorario}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-      <main>
-        <span>main</span>
-      </main>
     </div>
   );
 }

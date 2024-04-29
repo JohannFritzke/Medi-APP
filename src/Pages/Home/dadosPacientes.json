@@ -1,0 +1,23 @@
+[
+  {
+    "nome": "João",
+    "cpf": "123.456.789-00",
+    "telefone": "(11) 98765-4321",
+    "email": "joao@example.com",
+    "dataHorario": "01/05/2024 09:00 - 10:00"
+  },
+  {
+    "nome": "Maria",
+    "cpf": "987.654.321-00",
+    "telefone": "(11) 91234-5678",
+    "email": "maria@example.com",
+    "dataHorario": "02/05/2024 10:30 - 11:30"
+  },
+  {
+    "nome": "Antônio",
+    "cpf": "456.789.123-00",
+    "telefone": "(11) 92345-6789",
+    "email": "antonio@example.com",
+    "dataHorario": "03/05/2024 14:00 - 15:00"
+  }
+]
