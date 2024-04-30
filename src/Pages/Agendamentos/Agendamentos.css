@@ -1,0 +1,23 @@
+.container {
+  display: grid;
+  grid-template-areas:
+    "sidebar topbar"
+    "sidebar home-content";
+  grid-template-columns: auto 1fr; /* Sidebar com largura automática e o resto para o conteúdo */
+  grid-template-rows: auto 1fr; /* Topbar com altura automática e o resto para o conteúdo */
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidenav {
+  grid-area: sidebar;
+}
+
+.topbar {
+  grid-area: topbar;
+}
+
+.input{
+    display: flex;
+    flex-direction: column;
+}

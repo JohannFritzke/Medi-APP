@@ -1,0 +1,76 @@
+.container {
+  display: grid;
+  grid-template-areas:
+    "sidebar topbar"
+    "sidebar home-content";
+  grid-template-columns: auto 1fr; /* Sidebar com largura automática e o resto para o conteúdo */
+  grid-template-rows: auto 1fr; /* Topbar com altura automática e o resto para o conteúdo */
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidenav {
+  grid-area: sidebar;
+}
+
+.topbar {
+  grid-area: topbar;
+}
+
+.form-container {
+    grid-area: home-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form {
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-wrap: wrap;
+    width: 85%;
+    margin-bottom: 10px;
+    
+  }
+  
+  .form-group input,
+  .form-group select {
+    flex: 1;
+    padding: 5px;
+    margin-right: 5px;
+  }
+  
+  .form-group input:last-child {
+    margin-right: 0;
+  }
+  
+  button {
+    margin-top: 10px; /* Adiciona espaço acima do botão */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3a86ff;
+    color: white;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #235da4;
+  }
+  
+  .form-group input[type="date"],
+  .form-group select {
+   width: 90%;
+  }
+  

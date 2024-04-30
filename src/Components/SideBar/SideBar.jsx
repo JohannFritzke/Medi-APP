@@ -1,6 +1,6 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./SideBar.css";
+import { Link, useLocation } from "react-router-dom";
 
 import { IoIosMenu } from "react-icons/io";
 import { FaHome } from "react-icons/fa";
@@ -9,10 +9,10 @@ import { BsCalendar2DateFill } from "react-icons/bs";
 
 import Logo from "../Logo/Logo";
 
-/* eslint-disable */
 export default function Sidebar() {
   const [isSidebarClosed, setSidebarClosed] = useState(true);
   const [activeLink, setActiveLink] = useState("Inicio");
+  const location = useLocation();
 
   const toggleSidebar = () => {
     setSidebarClosed(!isSidebarClosed);
@@ -20,10 +20,23 @@ export default function Sidebar() {
 
   const sidebarClass = `sidenav ${isSidebarClosed ? "close" : ""}`;
   const links = [
-    { name: "Inicio", icon: <FaHome /> },
-    { name: "Cadastros", icon: <GiArchiveRegister /> },
-    { name: "Agendamentos", icon: <BsCalendar2DateFill /> },
+    { name: "Inicio", icon: <FaHome />, link: "/user/dashboard" },
+    { name: "Cadastros", icon: <GiArchiveRegister />, link: "/user/cadastros" },
+    {
+      name: "Agendamentos",
+      icon: <BsCalendar2DateFill />,
+      link: "/user/agendamentos",
+    },
   ];
+
+  useEffect(() => {
+    const pathname = location.pathname;
+    const link = links.find((link) => link.link === pathname);
+    if (link) {
+      setActiveLink(link.name);
+    }
+  }, [location.pathname, links]);
+
   return (
     <div className={sidebarClass}>
       <div className="sidebar-top">
@@ -41,14 +54,17 @@ export default function Sidebar() {
       <div className="sidebar-mid">
         <ul>
           {links.map((link) => (
-            <li
+            <Link
+              to={link.link}
+              className="link"
               key={link.name}
-              className={activeLink === link.name ? "action" : ""}
               onClick={() => setActiveLink(link.name)}
             >
-              <i>{link.icon}</i>
-              <span>{link.name}</span>
-            </li>
+              <li className={activeLink === link.name ? "action" : ""}>
+                <i>{link.icon}</i>
+                <span>{link.name}</span>
+              </li>
+            </Link>
           ))}
         </ul>
       </div>
