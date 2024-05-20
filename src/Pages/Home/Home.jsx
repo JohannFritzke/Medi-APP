@@ -1,12 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "../../Components/SideBar/SideBar";
 import TopBar from "../../Components/TopBar/TopBar";
 import "./Home.css";
-
-import dadosPacientes from "./dadosPacientes.json";
-import dadosConsultas from "./dadosConsultas.json";
-
 export function Home() {
+
+  const [pacientes, setPacientes] = useState([]);
+  const [agendamentos, setAgendamentos] = useState([]);
+
+  useEffect(() => {
+   fetch('http://localhost:8080/patient').then((response )=> {
+    return response.json()
+   }).then(response => {
+    setPacientes(response)
+   })
+
+   fetch('http://localhost:8080/schedule').then((response )=> {
+    return response.json()
+   }).then(response => {
+    setAgendamentos(response)
+   })
+
+  }, [])
+
   return (
     <div className="container">
       <Sidebar />
@@ -18,6 +33,7 @@ export function Home() {
             <thead>
               <tr>
                 <th>Médico</th>
+                <th>Paciente</th>
                 <th>Tipo de Consulta</th>
                 <th>Data</th>
                 <th>Hora Inicial</th>
@@ -25,15 +41,22 @@ export function Home() {
               </tr>
             </thead>
             <tbody>
-              {dadosConsultas.map((item, index) => (
-                <tr key={index}>
-                  <td>{item.medico}</td>
-                  <td>{item.tipoConsulta}</td>
-                  <td>{item.data}</td>
-                  <td>{item.horaInicial}</td>
-                  <td>{item.horaFinal}</td>
-                </tr>
-              ))}
+            {agendamentos.length > 0 && (
+                <>
+                {
+                  agendamentos.map((item, index) => (
+                    <tr key={index}>
+                      <td>{item.doctor_name}</td>
+                      <td>{item.patient_name}</td>
+                      <td>{item.service_type}</td>
+                      <td>{item.schedule_date}</td>
+                      <td>{item.initial_time}</td>
+                      <td>{item.final_time}</td>
+                    </tr>
+                  ))
+                }
+                </>
+              ) }
             </tbody>
           </table>
         </div>
@@ -50,15 +73,21 @@ export function Home() {
               </tr>
             </thead>
             <tbody>
-              {dadosPacientes.map((item, index) => (
-                <tr key={index}>
-                  <td>{item.nome}</td>
-                  <td>{item.cpf}</td>
-                  <td>{item.telefone}</td>
-                  <td>{item.email}</td>
-                  <td>{item.dataHorario}</td>
-                </tr>
-              ))}
+              {pacientes.length > 0 && (
+                <>
+                {
+                  pacientes.map((item, index) => (
+                    <tr key={index}>
+                      <td>{item.name}</td>
+                      <td>{item.cpf}</td>
+                      <td>{item.phone}</td>
+                      <td>{item.email}</td>
+                      <td>{item.birth_date}</td>
+                    </tr>
+                  ))
+                }
+                </>
+              ) }
             </tbody>
           </table>
         </div>

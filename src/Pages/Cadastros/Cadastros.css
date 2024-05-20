@@ -1,76 +1,57 @@
 .container {
-  display: grid;
-  grid-template-areas:
-    "sidebar topbar"
-    "sidebar home-content";
-  grid-template-columns: auto 1fr; /* Sidebar com largura automática e o resto para o conteúdo */
-  grid-template-rows: auto 1fr; /* Topbar com altura automática e o resto para o conteúdo */
-  height: 100vh;
-  overflow: hidden;
-}
-
-.sidenav {
-  grid-area: sidebar;
-}
-
-.topbar {
-  grid-area: topbar;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Faz o container ocupar no mínimo a altura total da tela */
+  padding: 20px;
 }
 
 .form-container {
-    grid-area: home-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .form {
-    width: 80%;
-    max-width: 600px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .form-group {
-    display: flex;
-    flex-wrap: wrap;
-    width: 85%;
-    margin-bottom: 10px;
-    
-  }
-  
-  .form-group input,
-  .form-group select {
-    flex: 1;
-    padding: 5px;
-    margin-right: 5px;
-  }
-  
-  .form-group input:last-child {
-    margin-right: 0;
-  }
-  
-  button {
-    margin-top: 10px; /* Adiciona espaço acima do botão */
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #3a86ff;
-    color: white;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #235da4;
-  }
-  
-  .form-group input[type="date"],
-  .form-group select {
-   width: 90%;
-  }
-  
+  width: 100%;
+  max-width: 800px; /* Aumente se necessário */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Duas colunas de igual largura */
+  grid-gap: 20px; /* Espaçamento entre os campos */
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button[type="submit"] {
+  grid-column: span 2; /* O botão ocupa duas colunas */
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
